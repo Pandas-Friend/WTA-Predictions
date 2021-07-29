@@ -5,7 +5,7 @@
 - Questions they hope to answer with the data
 
 # Machine Learning Model 
-Team members will be expected to present a provisional machine learning model that stands in for the final machine learning model and accomplishes the following:
+We will use Machine Learning for the prediction of professional tennis matches. First, we will use suprevised machine learning, an approach that uses historical player performance accross a wide variety of statistics to predict match outcomes. Subsequently, we can further optimeze and develop the machine learning models Team members will be expected to present a provisional machine learning model that stands in for the final machine learning model and accomplishes the following:
 - Takes in data from the provisional database
 - Outputs label for input data
 
