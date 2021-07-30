@@ -1,6 +1,6 @@
 # WTA-Predictions
 - This project will allow a user to choose two tennis players from the Women’s Tennis Association (WTA) database at https://github.com/JeffSackmann/tennis_wta to determine which player would win a match. The user interface will use be website using HTML, JavaScript and CSS.  The backend will use python and Jupiter Notebook.  Machine learning will be used to predict the outcomes. The features we will need to be determined by the relevance of the data to the outcome of a match. The dates of data used will also need to be considered.  Will we use all players since data has been gathered so for example a user could pair Billie Jean King against Serena Williams even though they never played against each others
-- Reason they selected the topic
+- We selected this topic because we wanted to do a project involving sports. We are all sports fans and sports are a gold mine for data so we figured a project involving sports would be a good way to incorporate something we all enjoy. We chose tennis because it is one of the few sports where two individuals compete against each other, as opposed to a sport like basketball where two teams compete against each other. We chose women’s tennis because there is an interesting balance right now of young  rising stars and accomplished veterans resulting in a good amount of parity in the sport that makes it harder to predict than in years past.
 - Description of the source of data
 - Questions they hope to answer with the data
 
