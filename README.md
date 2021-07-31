@@ -5,7 +5,7 @@
 - Questions they hope to answer with the data
 
 # Machine Learning Model 
-We will use machine learning for the prediction of professional tennis matches. First, we will use logistic regression and/or random forest suprevised machine learning, an approach that uses historical player performance accross a wide variety of statistics, to predict match outcomes. We can further optimeze and develop the machine learning models with artifical neural network.  
+We will use machine learning for the prediction of professional tennis matches. We will use: logistic regression, decision tree and/or random forest models, an approach that uses historical player performance accross a wide variety of statistics, to predict match outcomes. We can further optimeze and develop the machine learning models with artifical neural network.  
 ## Takes in data from the provisional database
 ### Reading from a PostgreSQL table to a pandas DataFrame
 - The data to be analyzed will be stored in a PostgreSQL table
