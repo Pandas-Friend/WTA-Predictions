@@ -86,6 +86,16 @@ Provisional output labels for the input data are:
 # Database Integration
 Team members will be expected to present a provisional database that stands in for the final database and accomplishes the following:
 
+- From the provisional output labels above gathered from the input model, we paired the data down to the following columns for the matches:
+<img width="992" alt="Screen Shot 2021-07-31 at 1 22 20 PM" src="https://user-images.githubusercontent.com/79341217/127749150-7449b170-a298-424a-b6d6-76d70444f891.png">
+- Players columns are:
+<img width="435" alt="Screen Shot 2021-07-31 at 1 22 30 PM" src="https://user-images.githubusercontent.com/79341217/127749159-858053ad-9062-4bd9-9de1-3c662ddc45a3.png">
+- Ranking columns are:
+<img width="341" alt="Screen Shot 2021-07-31 at 1 22 39 PM" src="https://user-images.githubusercontent.com/79341217/127749192-0501ae6c-2215-431b-9769-54f53fdebc24.png">
+
+- The data is then fed into the database from the dataframes:
+<img width="955" alt="Screen Shot 2021-07-31 at 1 25 44 PM" src="https://user-images.githubusercontent.com/79341217/127749236-da9a3b42-32bb-41f2-9d34-d380c6c46079.png">
+
 - This is the current database ERD
 <img width="492" alt="Screen Shot 2021-07-31 at 1 09 16 PM" src="https://user-images.githubusercontent.com/79341217/127749051-e078b61f-af66-44b7-b5d0-fef7520de3b0.png">
 
