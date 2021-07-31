@@ -5,22 +5,32 @@
 - Questions they hope to answer with the data
 
 # Machine Learning Model 
-We will use machine learning for the prediction of professional tennis matches. First, we will use linear regression and/or random forest suprevised machine learning, an approach that uses historical player performance accross a wide variety of statistics, to predict match outcomes. We can further optimeze and develop the machine learning models with artifical neural network.  
-Team members will be expected to present a provisional machine learning model that stands in for the final machine learning model and accomplishes the following:
+We will use machine learning for the prediction of professional tennis matches. First, we will use logistic regression and/or random forest suprevised machine learning, an approach that uses historical player performance accross a wide variety of statistics, to predict match outcomes. We can further optimeze and develop the machine learning models with artifical neural network.  
 ## Takes in data from the provisional database
 ### Reading from a PostgreSQL table to a pandas DataFrame
-- The data to be analyzed will be stored in a PostgreSQL table. 
-- Data from a PostgreSQL table can be read and loaded into a pandas DataFrame by calling the method DataFrame.read_sql() and passing the database connection obtained from the SQLAlchemy Engine as a parameter.
+- The data to be analyzed will be stored in a PostgreSQL table
+- Data from a PostgreSQL table can be read and loaded into a pandas DataFrame by calling the method DataFrame.read_sql() and passing the database connection obtained from the SQLAlchemy Engine as a parameter
 - Read DataFrame
-- After the data has been loaded, we can proceed to preprocess data for ML.  
+- After the data has been loaded, we can proceed to preprocess data for ML
 ### Process the Data
-- Define the features set.
-- Define the target set.
-- Split into Train and Test set using the train_test_split function.
-- Create a logistic regression or RandomForest model with the specified arguments.
-- Trained the model with the training data.
-- Create predictions for the target set.
-- Use the accuracy_score() method module to assess the performance of the model.
+- Define the features set
+- Define the target set
+- Split into Train and Test set using the train_test_split function
+#### Logistic Regression model
+- Fit the model with the training data
+- Make predictions using the test set
+- Use the accuracy_score() method module to assess the performance of the model
+- Plot the logistic regression model
+#### Decision Tree model
+- Build a decision tree model to predict the upsets likelihood of a given match
+- Make predictions using the test set
+- Use the accuracy_score() method module to assess the performance of the model
+- Plot the decision tree model
+#### Random Forest classifier model
+- Build a decision tree model to predict the upsets likelihood of a given match
+- Make predictions using the test set
+- Use the accuracy_score() method module to assess the performance of the model
+- Plot the random forest classifier model
 ## Output label for input data
 Provisional output labels for the input data are:  
 - tourney_id: a unique identifier for each tournament
