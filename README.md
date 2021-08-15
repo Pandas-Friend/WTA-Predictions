@@ -102,3 +102,4 @@ Team members will be expected to present a provisional database that stands in f
 
 # Description of the communication protocols
 We will communicate during class sessions, via Zoom for additional video meetings and using the capstone-project_group-three channel.
+
