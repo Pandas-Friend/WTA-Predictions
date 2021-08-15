@@ -101,8 +101,8 @@ Team members will be expected to present a provisional database that stands in f
 
 - We will be combining the Players and Rankings to get a table that can be used with the Flask Web App.
 
-# Flask Web App
-- Our front end will be available for users to pick two current players with rankings greater than 150 and determine if the machine learning predictions show that if the players played the outcome was as expected.
+# Dashboard
+- Our front end will be developed as a Flask Web App using SQLAlchemy with Python code, HTML and Bootstrap.  It will be available for users to pick two current players with rankings greater than 150 and determine if the machine learning predictions show that if the players played the outcome was as expected.
 <img width="1190" alt="Screen Shot 2021-08-15 at 12 29 01 PM" src="https://user-images.githubusercontent.com/79341217/129487184-78be5f7f-de70-4e16-bf8b-a9af3dee70ab.png">
 
 
