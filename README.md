@@ -97,7 +97,14 @@ Team members will be expected to present a provisional database that stands in f
 <img width="955" alt="Screen Shot 2021-07-31 at 1 25 44 PM" src="https://user-images.githubusercontent.com/79341217/127749236-da9a3b42-32bb-41f2-9d34-d380c6c46079.png">
 
 - This is the current database ERD
-<img width="492" alt="Screen Shot 2021-07-31 at 1 09 16 PM" src="https://user-images.githubusercontent.com/79341217/127749051-e078b61f-af66-44b7-b5d0-fef7520de3b0.png">
+<img width="615" alt="Screen Shot 2021-08-15 at 12 29 32 PM" src="https://user-images.githubusercontent.com/79341217/129487121-0d0dbf21-d1a7-4080-9077-099418b1c28b.png">
+
+- We will be combining the Players and Rankings to get a table that can be used with the Flask Web App.
+
+# Flask Web App
+- Our front end will be available for users to pick two current players with rankings greater than 150 and determine if the machine learning predictions show that if the players played the outcome was as expected.
+<img width="1190" alt="Screen Shot 2021-08-15 at 12 29 01 PM" src="https://user-images.githubusercontent.com/79341217/129487184-78be5f7f-de70-4e16-bf8b-a9af3dee70ab.png">
+
 
 
 # Description of the communication protocols
