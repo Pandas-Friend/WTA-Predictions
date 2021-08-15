@@ -1,45 +1,50 @@
 from flask import Flask, request, render_template
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
-
+#from flask_sqlalchemy import SQLAlchemy
+#from flask_migrate import Migrate
 
 app = Flask(__name__)
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:GoBrewers12@localhost:5432/WTA"
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+# app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:GoBrewers12@localhost:5432/WTA"
+# db = SQLAlchemy(app)
+# migrate = Migrate(app, db)
 
-class players(db.Model):
-    __tablename__ = 'player_ranking'
+# class players(db.Model):
+#     __tablename__ = 'player_ranking'
 
-    ranking = db.Column(db.Integer)
-    first_name = db.Column(db.String())
-    last_name = db.Column(db.String())
-    country = db.Column(db.String())
-    date = db.Column(db.Integer())
-    id = db.Column(db.Integer(), primary_key=True)
-    full_name = db.Column(db.String())
+#     ranking = db.Column(db.Integer)
+#     first_name = db.Column(db.String())
+#     last_name = db.Column(db.String())
+#     country = db.Column(db.String())
+#     date = db.Column(db.Integer())
+#     id = db.Column(db.Integer(), primary_key=True)
+#     full_name = db.Column(db.String())
 
-    def __init__(self, ranking, first_name, last_name, country, date, id, full_name):
-        self.ranking = ranking
-        self.first_name = first_name
-        self.last_name = last_name
-        self.country = country
-        self.date = date
-        self.id = id
-        self.full_name = full_name
+#     def __init__(self, ranking, first_name, last_name, country, date, id, full_name):
+#         self.ranking = ranking
+#         self.first_name = first_name
+#         self.last_name = last_name
+#         self.country = country
+#         self.date = date
+#         self.id = id
+#         self.full_name = full_name
 
-    def __repr__(self):
-        return f"<Player {self.name}>"
+#     def __repr__(self):
+#         return f"<Player {self.name}>"
 
 @app.route('/')
-def hello():
-    return {"hello": "world"}
+def index():
+    return render_template("index.html")
 
-@app.route("/input")
-def input():
-    #playerList = db.execute("SELECT DISTINCT first_name, last_name FROM player_ranking WHERE ranking < 150 ORDER BY last_name")
-    return render_template("input.html", players = players.query.with_entities(players.full_name, players.last_name).distinct().where(players.ranking < 150).order_by(players.last_name))
+# @app.route("/input")
+# def input():
+#       return render_template("input.html", players = players.query.with_entities(players.full_name, players.last_name).distinct().where(players.ranking < 150).order_by(players.last_name))
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == "POST":
+        car_brand = request.form.get("cars", None)
+        if car_brand!=None:
+            return render_template("dropdown.html", car_brand = car_brand)
+    return render_template("dropdown.html")
 
 # @app.route('/cars', methods=['POST', 'GET'])
 # def handle_cars():
