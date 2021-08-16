@@ -38,13 +38,25 @@ def index():
 # def input():
 #       return render_template("input.html", players = players.query.with_entities(players.full_name, players.last_name).distinct().where(players.ranking < 150).order_by(players.last_name))
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
+@app.route('/playerone', methods=['GET', 'POST'])
+def playerone():
     if request.method == "POST":
-        car_brand = request.form.get("cars", None)
-        if car_brand!=None:
-            return render_template("dropdown.html", car_brand = car_brand)
-    return render_template("dropdown.html")
+        player_1 = request.form.get("playerone", None)
+        if player_1!=None:
+            return render_template("index.html", player_1 = player_1)
+    return render_template("index.html")
+
+@app.route('/playertwo', methods=['GET', 'POST'])
+def playertwo():
+    if request.method == "POST":
+        player_2 = request.form.get("playertwo", None)
+        if player_2!=None:
+            return render_template("index.html", player_2 = player_2)
+    return render_template("index.html")
+
+@app.route('/reset')
+def reset():
+    return render_template("index.html")
 
 # @app.route('/cars', methods=['POST', 'GET'])
 # def handle_cars():
