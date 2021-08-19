@@ -3,7 +3,8 @@
 - We selected this topic because we wanted to do a project involving sports. We are all sports fans and sports are a gold mine for data so we figured a project involving sports would be a good way to incorporate something we all enjoy. We chose tennis because it is one of the few sports where two individuals compete against each other, as opposed to a sport like basketball where two teams compete against each other. We chose women’s tennis because there is an interesting balance right now of young  rising stars and accomplished veterans resulting in a good amount of parity in the sport that makes it harder to predict than in years past.
 
 # Database Integration
-Team members will be expected to present a provisional database that stands in for the final database and accomplishes the following:
+- Database ERD
+<img width="615" alt="Screen Shot 2021-08-15 at 12 29 32 PM" src="https://user-images.githubusercontent.com/79341217/129487121-0d0dbf21-d1a7-4080-9077-099418b1c28b.png">
 
 - From the provisional output labels above gathered from the input model, we paired the data down to the following columns for the matches:
 <img width="992" alt="Screen Shot 2021-07-31 at 1 22 20 PM" src="https://user-images.githubusercontent.com/79341217/127749150-7449b170-a298-424a-b6d6-76d70444f891.png">
@@ -15,8 +16,6 @@ Team members will be expected to present a provisional database that stands in f
 - The data is then fed into the database from the dataframes:
 <img width="955" alt="Screen Shot 2021-07-31 at 1 25 44 PM" src="https://user-images.githubusercontent.com/79341217/127749236-da9a3b42-32bb-41f2-9d34-d380c6c46079.png">
 
-- This is the current database ERD
-<img width="615" alt="Screen Shot 2021-08-15 at 12 29 32 PM" src="https://user-images.githubusercontent.com/79341217/129487121-0d0dbf21-d1a7-4080-9077-099418b1c28b.png">
 
 - We will be combining the Players and Rankings to get a table that can be used with the Flask Web App.
 
@@ -39,7 +38,7 @@ We will use machine learning for the prediction of professional tennis matches. 
 - Create dummy variables
 - Transform the Round entries into numbers. We then transform rounds into dummy variables
 - Create variable D
-- 
+
 ## Logistic Regression model
 - Define the features set
 - Define the target set
