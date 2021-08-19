@@ -21,12 +21,11 @@ Team members will be expected to present a provisional database that stands in f
 - We will be combining the Players and Rankings to get a table that can be used with the Flask Web App.
 
 # Machine Learning Model 
-We will use machine learning for the prediction of professional tennis matches. We will use: logistic regression, decision tree and/or random forest models, an approach that uses historical player performance accross a wide variety of statistics, to predict match outcomes. We can further optimeze and develop the machine learning models with artifical neural network.  
-## Takes in data from the provisional database
-### Reading from a PostgreSQL table to a pandas DataFrame
-- The data to be analyzed will be stored in a PostgreSQL table
+We will use machine learning for the prediction of professional tennis matches. Logistic regression, decision tree and/or random forest models are approaches that use historical player performance accross a wide variety of statistics, to predict match outcomes. Future work includes to further optimeze and develop the machine learning models with artifical neural network.  
+
+## Reading from a PostgreSQL table to a pandas DataFrame
+- The data to be analyzed will be stored in a PostgreSQL table.
 - Data from a PostgreSQL table can be read and loaded into a pandas DataFrame by calling the method DataFrame.read_sql() and passing the database connection obtained from the SQLAlchemy Engine as a parameter
-- Read DataFrame
 - After the data has been loaded, we can proceed to preprocess data for ML
 ### Process the Data
 - Define the features set
