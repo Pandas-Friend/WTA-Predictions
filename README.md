@@ -27,25 +27,34 @@ We will use machine learning for the prediction of professional tennis matches. 
 - The data to be analyzed will be stored in a PostgreSQL table.
 - Data from a PostgreSQL table can be read and loaded into a pandas DataFrame by calling the method DataFrame.read_sql() and passing the database connection obtained from the SQLAlchemy Engine as a parameter
 - After the data has been loaded, we can proceed to preprocess data for ML
-### Process the Data
+
+## Pre-process the Data
+- Converting tourney_date to datetime format
+- Choosing features
+- Dropping NaN values
+- Dropping errors in the dataset 
+- Transform strings into numerical values
+- Create an extra columns for the variable win described above using an auxiliary function win(x)
+- Stratified sampling 
+- Create dummy variables
+- Transform the Round entries into numbers. We then transform rounds into dummy variables
+- Create variable D
+- 
+## Logistic Regression model
 - Define the features set
 - Define the target set
 - Split into Train and Test set using the train_test_split function
-#### Logistic Regression model
 - Fit the model with the training data
 - Make predictions using the test set
 - Use the accuracy_score() method module to assess the performance of the model
-- Plot the logistic regression model
-#### Decision Tree model
-- Build a decision tree model to predict the upsets likelihood of a given match
-- Make predictions using the test set
-- Use the accuracy_score() method module to assess the performance of the model
-- Plot the decision tree model
-#### Random Forest classifier model
-- Build a decision tree model to predict the upsets likelihood of a given match
-- Make predictions using the test set
-- Use the accuracy_score() method module to assess the performance of the model
-- Plot the random forest classifier model
+- Display the confusion matrix and imbalanced classification report
+- Create ROC curve
+
+## Random Forest classifier model
+- Resample the training data with BalancedRandomForestClassifier
+- Calculate the balanced accuracy score
+- Display the confusion matrix and imbalanced classification report 
+
 ## Output label for input data
 Output labels for the input data are:  
 - date
