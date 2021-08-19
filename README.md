@@ -3,21 +3,20 @@
 - We selected this topic because we wanted to do a project involving sports. We are all sports fans and sports are a gold mine for data so we figured a project involving sports would be a good way to incorporate something we all enjoy. We chose tennis because it is one of the few sports where two individuals compete against each other, as opposed to a sport like basketball where two teams compete against each other. We chose women’s tennis because there is an interesting balance right now of young  rising stars and accomplished veterans resulting in a good amount of parity in the sport that makes it harder to predict than in years past.
 
 # Database Integration
-- Database ERD
-<img width="615" alt="Screen Shot 2021-08-15 at 12 29 32 PM" src="https://user-images.githubusercontent.com/79341217/129487121-0d0dbf21-d1a7-4080-9077-099418b1c28b.png">
-
-- From the provisional output labels above gathered from the input model, we paired the data down to the following columns for the matches:
-<img width="992" alt="Screen Shot 2021-07-31 at 1 22 20 PM" src="https://user-images.githubusercontent.com/79341217/127749150-7449b170-a298-424a-b6d6-76d70444f891.png">
-- Players columns are:
-<img width="435" alt="Screen Shot 2021-07-31 at 1 22 30 PM" src="https://user-images.githubusercontent.com/79341217/127749159-858053ad-9062-4bd9-9de1-3c662ddc45a3.png">
-- Ranking columns are:
-<img width="341" alt="Screen Shot 2021-07-31 at 1 22 39 PM" src="https://user-images.githubusercontent.com/79341217/127749192-0501ae6c-2215-431b-9769-54f53fdebc24.png">
+- Database ERD       
+![ERD](https://github.com/Pandas-Friend/WTA-Predictions/blob/main/Images/WTA_db_ERD.png)  
+- Matches table       
+![matches](https://github.com/Pandas-Friend/WTA-Predictions/blob/main/Images/matches_head.jpg)  
+- Players table      
+![players](https://github.com/Pandas-Friend/WTA-Predictions/blob/main/Images/players.jpg)  
+- Rankings table      
+![rankings](https://github.com/Pandas-Friend/WTA-Predictions/blob/main/Images/rankings.jpg) 
 
 - The data is then fed into the database from the dataframes:
 <img width="955" alt="Screen Shot 2021-07-31 at 1 25 44 PM" src="https://user-images.githubusercontent.com/79341217/127749236-da9a3b42-32bb-41f2-9d34-d380c6c46079.png">
 
+- Joint table combining the Players and Rankings to get a table that can be used with the Flask Web App
 
-- We will be combining the Players and Rankings to get a table that can be used with the Flask Web App.
 
 # Machine Learning Model 
 We will use machine learning for the prediction of professional tennis matches. Logistic regression, decision tree and/or random forest models are approaches that use historical player performance accross a wide variety of statistics, to predict match outcomes. Future work includes to further optimeze and develop the machine learning models with artifical neural network.  
