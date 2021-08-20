@@ -1,8 +1,13 @@
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-      </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict a Winner</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
       <body>
         <div class="container">
           <!-- Add Jumbotron to Header -->
@@ -33,26 +38,21 @@
           </div>
           <div class="row">
             <div class="form-group col-xs-6">
+              <label for="date">Select a Date</label>
+              <select class="form-control" id="date">
+                {% for d in dates%}
+                <OPTION value={{d.tourney_date}}>{{d.tourney_date}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="form-group col-xs-6">
               <label for="surface">Select a Surface</label>
               <select class="form-control" id="surface">
                 <option value="Grass">Grass</option>
                 <option value="Clay">Clay</option>
                 <option value="Hard">Hard</option>
              </select>
-            </div>
-            <div class="form-group col-xs-6">
-              <label for="date">Select a Date</label>
-              <select class="form-control" id="date">
-                {% for d in dates%}
-                <OPTION value={{d.date}}>{{d.date}}</option>
-                {% endfor %}
-              </select>
-            </div>  
-            <!-- <div class="form-group col-xs-6">
-              <label for="date">Enter a date YYYYMMDD, No spaces</label>
-              <br>
-              <input type="text" id="date" name="date" size="50"/> 
-            </div> -->
+            </div> 
           </div>
           <div>
             <button type="button" id="process_input">Process selection!</button>
@@ -72,8 +72,8 @@
             $.getJSON('/_process_data', {
               selected_player_a: $('#player_a option:selected').text(),
               selected_player_b: $('#player_b option:selected').text(),
-              selected_surface: $('#surface option:selected').text(),
-              selected_date: $('#date').val()
+              selected_date: $('#date option:selected').text(),
+              selected_surface: $('#surface option:selected').text()
 
             }).success(function(data) {
               $('#processed_results').text(data.random_text);
