@@ -1,87 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Predict a Winner</title>
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container">
-      <!-- Add Jumbotron to Header -->
-      <div class="jumbotron text-center">
-        <h1>Predict a Winner</h1>
-        <h2>Women’s Tennis Association --
-            Analyzing Who Wins a Match
-            </h2>
-      </div>
-      <div class="row" id="Pick your players">
-        <div class="col-md-12">
-            <h2>Pick your Players</h2>
-          <div class="col-md-6">
-            <p>Select Player 1</p>
-            <form id="form1" action="/playerone" method="POST" enctype="multipart/form-data">
-                <select id="mySelect" name = "playerone">
-                <option value="Coco Gauff">Coco Gauff</option>
-                <option value="Serena Williams">Serena Williams</option>
-                <option value="Venus Williams">Venus Williams</option>
-                <option value="Naomi Osaka">Naomi Osaka</option>
-                </select>
-                <input type="submit" value="Select">
-            </form> 
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+      </head>
+      <body>
+        <div class="container">
+          <!-- Add Jumbotron to Header -->
+          <div class="jumbotron text-center">
+            <h1>Predict a Winner</h1>
+            <h2>Women’s Tennis Association --
+                Analyzing Who Wins a Match
+                </h2>
           </div>
-          <div class="col-md-6">
-            <p>Select Player 2</p>
-            <form id="form1" action="/playertwo" method="POST" enctype="multipart/form-data">
-                <select id="mySelect" name = "playertwo">
-                <option value="Coco Gauff">Coco Gauff</option>
-                <option value="Serena Williams">Serena Williams</option>
-                <option value="Venus Williams">Venus Williams</option>
-                <option value="Naomi Osaka">Naomi Osaka</option>
-                </select>
-                <input type="submit" value="Select">
-            </form> 
+          
+          <div class="row">
+            <div class="form-group col-xs-6">
+              <label for="player_a">Select Player 1</label>
+              <select class="form-control" id="player_a">
+                {% for p in player_a %}
+                <OPTION value={{p.full_name}}>{{p.full_name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="form-group col-xs-6">
+              <label for="player_b">Select Player 2</label>
+              <select class="form-control" id="player_b">
+                {% for p in player_b%}
+                <OPTION value={{p.full_name}}>{{p.full_name}}</option>
+                {% endfor %}
+              </select>
+            </div>  
           </div>
-      </div>
-      <div class="row" id="picks">
-        <div class="col-md-12">
-          <div class="col-md-6">
-            <div id="result">
-                {% if player_1 is defined %}
-                You selected: {{ player_1 }}
-                {% endif %}
-             </div>
+          <div class="row">
+            <div class="form-group col-xs-6">
+              <label for="surface">Select a Surface</label>
+              <select class="form-control" id="surface">
+                <option value="Grass">Grass</option>
+                <option value="Clay">Clay</option>
+                <option value="Hard">Hard</option>
+             </select>
+            </div>
+            <div class="form-group col-xs-6">
+              <label for="date">Select a Date</label>
+              <select class="form-control" id="date">
+                {% for d in dates%}
+                <OPTION value={{d.date}}>{{d.date}}</option>
+                {% endfor %}
+              </select>
+            </div>  
+            <!-- <div class="form-group col-xs-6">
+              <label for="date">Enter a date YYYYMMDD, No spaces</label>
+              <br>
+              <input type="text" id="date" name="date" size="50"/> 
+            </div> -->
           </div>
-          <div class="col-md-6">
-             <div id="result">
-                {% if player_2 is defined %}
-                You selected: {{ player_2 }}
-                 {% endif %}
-             </div>
+          <div>
+            <button type="button" id="process_input">Process selection!</button>
+          </div><br><br>
+          <div id="processed_results">
+            
           </div>
         </div>
-    </div>
-    <br>
+        <script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+        <script type="text/javascript">
+          $(document).ready(function() {
+            $(".form-control").select2();
 
-      <!-- Section for Featured Image and Facts table --> 
-      <div class="row" id="Results">
-        <div class="col-md-12">
-          <h2>ML Model</h2>
-        </div>
-        <div class="col-md-12">
-          <h2>Results</h4>
-        </div>
-      </div>
-      <br>
-      <div class="row" id="Graphs for Output">
-        <div class="media">
-          <div class="media-body">
-            <h2>Graphs</h2> 
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+          $('#process_input').bind('click', function() {
+            $.getJSON('/_process_data', {
+              selected_player_a: $('#player_a option:selected').text(),
+              selected_player_b: $('#player_b option:selected').text(),
+              selected_surface: $('#surface option:selected').text(),
+              selected_date: $('#date').val()
+
+            }).success(function(data) {
+              $('#processed_results').text(data.random_text);
+            })
+            return false;
+          });
+        });
+        </script>
+      </body>
+    </html>

@@ -1,111 +1,61 @@
-from flask import Flask, request, render_template
-#from flask_sqlalchemy import SQLAlchemy
-#from flask_migrate import Migrate
+from flask import Flask, request, render_template, jsonify
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:GoBrewers12@localhost:5432/WTA"
-# db = SQLAlchemy(app)
-# migrate = Migrate(app, db)
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:GoBrewers12@localhost:5432/WTA"
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
-# class players(db.Model):
-#     __tablename__ = 'player_ranking'
+def get_dropdown_values():
+    player_values = players.query.with_entities(players.full_name).distinct().where(players.ranking < 150).order_by(players.last_name)
+    return player_values
 
-#     ranking = db.Column(db.Integer)
-#     first_name = db.Column(db.String())
-#     last_name = db.Column(db.String())
-#     country = db.Column(db.String())
-#     date = db.Column(db.Integer())
-#     id = db.Column(db.Integer(), primary_key=True)
-#     full_name = db.Column(db.String())
+def get_dates():
+    dates = players.query.with_entities(players.date).distinct().where(players.date.isnot(None))
+    return dates
 
-#     def __init__(self, ranking, first_name, last_name, country, date, id, full_name):
-#         self.ranking = ranking
-#         self.first_name = first_name
-#         self.last_name = last_name
-#         self.country = country
-#         self.date = date
-#         self.id = id
-#         self.full_name = full_name
+class players(db.Model):
+    __tablename__ = 'player_ranking'
 
-#     def __repr__(self):
-#         return f"<Player {self.name}>"
+    ranking = db.Column(db.Integer)
+    first_name = db.Column(db.String())
+    last_name = db.Column(db.String())
+    country = db.Column(db.String())
+    date = db.Column(db.Integer())
+    id = db.Column(db.Integer(), primary_key=True)
+    full_name = db.Column(db.String())
 
-@app.route('/')
+    def __init__(self, ranking, first_name, last_name, country, date, id, full_name):
+        self.ranking = ranking
+        self.first_name = first_name
+        self.last_name = last_name
+        self.country = country
+        self.date = date
+        self.id = id
+        self.full_name = full_name
+
+    def __repr__(self):
+        return f"<Player {self}>"
+
+
+@app.route('/_process_data')
+def process_data():
+    selected_player_a = request.args.get('selected_player_a', type=str)
+    selected_player_b = request.args.get('selected_player_b', type=str)
+    selected_surface = request.args.get('selected_surface', type=str)
+    selected_date = request.args.get('selected_date', type=str)
+
+    # process the two selected values here and return the response; here we just create a dummy string
+
+    return jsonify(random_text="You selected players {} and {} on a {} surface on {}".format(selected_player_a, selected_player_b, selected_surface, selected_date))
+
+@app.route("/")
 def index():
-    return render_template("index.html")
+      values = get_dropdown_values()
+      dates = get_dates()
+      return render_template("index.html", player_a=values, player_b=values, dates=dates)
 
-# @app.route("/input")
-# def input():
-#       return render_template("input.html", players = players.query.with_entities(players.full_name, players.last_name).distinct().where(players.ranking < 150).order_by(players.last_name))
-
-@app.route('/playerone', methods=['GET', 'POST'])
-def playerone():
-    if request.method == "POST":
-        player_1 = request.form.get("playerone", None)
-        if player_1!=None:
-            return render_template("index.html", player_1 = player_1)
-    return render_template("index.html")
-
-@app.route('/playertwo', methods=['GET', 'POST'])
-def playertwo():
-    if request.method == "POST":
-        player_2 = request.form.get("playertwo", None)
-        if player_2!=None:
-            return render_template("index.html", player_2 = player_2)
-    return render_template("index.html")
-
-@app.route('/reset')
-def reset():
-    return render_template("index.html")
-
-# @app.route('/cars', methods=['POST', 'GET'])
-# def handle_cars():
-#     if request.method == 'POST':
-#         if request.is_json:
-#             data = request.get_json()
-#             new_car = CarsModel(name=data['name'], model=data['model'], doors=data['doors'])
-#             db.session.add(new_car)
-#             db.session.commit()
-#             return {"message": f"car {new_car.name} has been created successfully."}
-#         else:
-#             return {"error": "The request payload is not in JSON format"}
-
-#     elif request.method == 'GET':
-#         cars = CarsModel.query.all()
-#         results = [
-#             {
-#                 "name": car.name,
-#                 "model": car.model,
-#                 "doors": car.doors
-#             } for car in cars]
-
-#         return {"count": len(results), "cars": results}
-
-# @app.route('/cars/<car_id>', methods=['GET', 'PUT', 'DELETE'])
-# def handle_car(car_id):
-#     car = CarsModel.query.get_or_404(car_id)
-
-#     if request.method == 'GET':
-#         response = {
-#             "name": car.name,
-#             "model": car.model,
-#             "doors": car.doors
-#         }
-#         return {"message": "success", "car": response}
-
-#     elif request.method == 'PUT':
-#         data = request.get_json()
-#         car.name = data['name']
-#         car.model = data['model']
-#         car.doors = data['doors']
-#         db.session.add(car)
-#         db.session.commit()
-#         return {"message": f"car {car.name} successfully updated"}
-
-#     elif request.method == 'DELETE':
-#         db.session.delete(car)
-#         db.session.commit()
-#         return {"message": f"Car {car.name} successfully deleted."}
 
 if __name__ == '__main__':
     app.run(debug=True)
