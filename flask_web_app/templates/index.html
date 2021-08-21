@@ -37,14 +37,14 @@
             </div>  
           </div>
           <div class="row">
-            <div class="form-group col-xs-6">
-              <label for="date">Select a Date</label>
-              <select class="form-control" id="date">
+			 <div class="form-group col-xs-6">
+              <label for="dates">Select a Date</label>
+              <select class="form-control" id="dates">
                 {% for d in dates%}
-                <OPTION value={{d.tourney_date}}>{{d.tourney_date}}</option>
+                <OPTION value={{d.ranking_dates}}>{{d.ranking_dates}}</option>
                 {% endfor %}
               </select>
-            </div>
+		  	</div>
             <div class="form-group col-xs-6">
               <label for="surface">Select a Surface</label>
               <select class="form-control" id="surface">
@@ -62,7 +62,6 @@
           </div>
         </div>
         <script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
         <script type="text/javascript">
           $(document).ready(function() {
@@ -72,7 +71,7 @@
             $.getJSON('/_process_data', {
               selected_player_a: $('#player_a option:selected').text(),
               selected_player_b: $('#player_b option:selected').text(),
-              selected_date: $('#date option:selected').text(),
+              selected_date: $('#dates option:selected').text(),
               selected_surface: $('#surface option:selected').text()
 
             }).success(function(data) {
