@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, json, request, render_template, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -19,8 +19,24 @@ def get_dates():
         players.ranking_dates.isnot(None)).order_by(players.ranking_dates)
     return dates
 
-def get_player(player, dates):
-    return players.query.with_entities(players.ranking).where(players.full_name==player).where(players.ranking_dates==dates)
+def get_player_rank(player, dates):
+    results = players.query.filter(players.full_name==player, players.ranking_dates==dates).first()
+    return results.ranking
+
+def get_match(player_a, player_b):
+    #match_played = matches.query.filter((matches.winner_name==player_a & matches.loser_name==player_b) | (matches.winner_name==player_b & matches.loser_name==player_a)).first()
+    a_won = matches.query.filter(matches.winner_name==player_a, matches.loser_name==player_b).first()
+    b_won = matches.query.filter(matches.winner_name==player_b, matches.loser_name==player_a).first()
+    if (a_won is not None):
+        text_output =  "{} ranked {} won over {} ranked {} on a {} surface on {}".format(a_won.winner_name,a_won.winner_rank,a_won.loser_name,a_won.loser_rank,a_won.surface, a_won.tourney_date)
+        return text_output
+    elif (b_won is not None):
+        text_output = "{} ranked {} won over {} ranked {} on a {} surface on {}".format(b_won.winner_name,b_won.winner_rank,b_won.loser_name,b_won.loser_rank,b_won.surface, b_won.tourney_date)
+        return text_output
+    else:
+        return "These players haven't played each other"
+
+
 
 class players(db.Model):
     __tablename__ = 'player_ranking'
@@ -76,9 +92,19 @@ def process_data():
     selected_player_b = request.args.get('selected_player_b', type=str)
     selected_surface = request.args.get('selected_surface', type=str)
     selected_date = request.args.get('selected_date', type=str)	
-    player1 = get_player(selected_player_a, selected_date)
-    return jsonify(random_text="You selected {} and {} for date of {} on a {} surface {}".format(selected_player_a, selected_player_b, selected_date, selected_surface, player1))
+    player_a_rank = get_player_rank(selected_player_a, selected_date)
+    player_b_rank= get_player_rank(selected_player_b, selected_date)
+    if (player_a_rank < player_b_rank):
+        winner = selected_player_a
+        loser = selected_player_b
+    else:
+        winner = selected_player_b
+        loser = selected_player_a
+    
+    recent_winner = get_match(selected_player_a, selected_player_b)
 
+    return jsonify(random_text="On the WTA tour on {} {} was ranked {} and {} was ranked {}.  If they played on that day {} would win over {} based on the machine learning model predicition of 63 percent.  {}.".format(selected_date, selected_player_a, player_a_rank, selected_player_b, player_b_rank, winner, loser, recent_winner))
+    
 @app.route("/")
 def index():
     values = get_dropdown_values()
