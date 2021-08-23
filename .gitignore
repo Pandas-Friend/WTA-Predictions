@@ -77,55 +77,35 @@ docs/_build/
 target/
 
 # Jupyter Notebook
+
 .ipynb_checkpoints
 
-# IPython
-profile_default/
-ipython_config.py
+#config.py
+config.py
 
-# pyenv
-.python-version
+#.DS_Store
+.DS_Store
 
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
+# Compiled class file
+*.class
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
+# Log file
+*.log
 
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
+# BlueJ files
+*.ctxt
 
-# SageMath parsed files
-*.sage.py
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
 
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
