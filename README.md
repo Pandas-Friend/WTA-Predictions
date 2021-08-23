@@ -63,8 +63,10 @@ Output labels for the input data are:
 - loser rank 
 
 # Dashboard
-- Our front end will be developed as a Flask Web App using SQLAlchemy with Python code, HTML and Bootstrap.  It will be available for users to pick two current players with rankings greater than 150 and determine if the machine learning predictions show that if the players played the outcome was as expected.
-<img width="1190" alt="Screen Shot 2021-08-15 at 12 29 01 PM" src="https://user-images.githubusercontent.com/79341217/129487184-78be5f7f-de70-4e16-bf8b-a9af3dee70ab.png">
+- Our front end is a Flask Web App using Flask-SQLAlchemy to query a PostgreSQl database. Python, JQuery, HTML, CSS and Bootstrap provide the basis for the code.  Users pick two current players with rankings greater than 150 and determine if the machine learning predictions show if the players played the outcome is as expected.<br>
+<img width="1036" alt="Screen Shot 2021-08-23 at 4 45 18 PM" src="https://user-images.githubusercontent.com/79341217/130523720-1e538506-1069-41b9-999b-34dec3a7d907.png">
+<img width="1029" alt="Screen Shot 2021-08-23 at 4 45 32 PM" src="https://user-images.githubusercontent.com/79341217/130523748-df2112ae-daa1-4f83-821a-1e3f591882cf.png">
+
 
 # Google Slides presentation
 Below is a direct link to our Google Slides presentation:     
