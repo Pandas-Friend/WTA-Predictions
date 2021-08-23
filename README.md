@@ -68,7 +68,7 @@ Output labels for the input data are:
 
 # Google Slides presentation
 Below is a direct link to our Google Slides presentation:     
-[Google Slides presentations](https://docs.google.com/presentation/d/1kj3-D4nkfjqyRnsDKnIdLMEupGDFcTyMee680LpoGRI/edit#slide=id.ge934b9b1dc_0_22)
+[Google Slides presentation](https://docs.google.com/presentation/d/1kj3-D4nkfjqyRnsDKnIdLMEupGDFcTyMee680LpoGRI/edit#slide=id.ge934b9b1dc_0_22)
 
 # Description of the communication protocols
 We will communicate during class sessions, via Zoom for additional video meetings and using the capstone-project_group-three channel.
