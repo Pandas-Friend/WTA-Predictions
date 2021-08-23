@@ -66,6 +66,10 @@ Output labels for the input data are:
 - Our front end will be developed as a Flask Web App using SQLAlchemy with Python code, HTML and Bootstrap.  It will be available for users to pick two current players with rankings greater than 150 and determine if the machine learning predictions show that if the players played the outcome was as expected.
 <img width="1190" alt="Screen Shot 2021-08-15 at 12 29 01 PM" src="https://user-images.githubusercontent.com/79341217/129487184-78be5f7f-de70-4e16-bf8b-a9af3dee70ab.png">
 
+# Google Slides presentation
+Below is a direct link to our Google Slides presentation:     
+[Google Slides presentations](https://docs.google.com/presentation/d/1kj3-D4nkfjqyRnsDKnIdLMEupGDFcTyMee680LpoGRI/edit#slide=id.ge934b9b1dc_0_22)
+
 # Description of the communication protocols
 We will communicate during class sessions, via Zoom for additional video meetings and using the capstone-project_group-three channel.
 
