@@ -7,22 +7,24 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:Zaqedc12@localhos
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-
+# The dropdown values for the players names from the current players table
 def get_dropdown_values():
     player_values = players.query.with_entities(players.full_name).distinct().where(
         players.ranking < 150).order_by(players.last_name)
     return player_values
 
-
+# The dropdown values for the dates in the current players table
 def get_dates():
     dates = players.query.with_entities(players.ranking_dates).distinct().where(
         players.ranking_dates.isnot(None)).order_by(players.ranking_dates)
     return dates
 
+# The dropdown values for the rankings in the current players table.
 def get_player_rank(player, dates):
     results = players.query.filter(players.full_name==player, players.ranking_dates==dates).first()
     return results.ranking
 
+# The query to determine if the players played each other.
 def get_match(player_a, player_b):
     #match_played = matches.query.filter((matches.winner_name==player_a & matches.loser_name==player_b) | (matches.winner_name==player_b & matches.loser_name==player_a)).first()
     a_won = matches.query.filter(matches.winner_name==player_a, matches.loser_name==player_b).first()
@@ -37,7 +39,7 @@ def get_match(player_a, player_b):
         return "These players haven't played each other"
 
 
-
+# Player Ranking table 
 class players(db.Model):
     __tablename__ = 'player_ranking'
 
@@ -61,7 +63,7 @@ class players(db.Model):
     def __repr__(self):
         return f"<Player {self}>"
 
-
+# Matches table
 class matches(db.Model):
     __tablename__ = 'flask_matches'
 
@@ -85,7 +87,7 @@ class matches(db.Model):
     def __repr__(self):
         return f"<Matches {self}>"
 
-
+# Once the user selects the players, surface and date the players ranking is obtained and the whether the players played each other and output to the index page.
 @app.route('/_process_data')
 def process_data():
     selected_player_a = request.args.get('selected_player_a', type=str)
@@ -104,7 +106,8 @@ def process_data():
     recent_winner = get_match(selected_player_a, selected_player_b)
 
     return jsonify(random_text="On the WTA tour on {} {} was ranked {} and {} was ranked {}.  If they played on that day {} would win over {} based on the machine learning model predicition of 63 percent.  {}.".format(selected_date, selected_player_a, player_a_rank, selected_player_b, player_b_rank, winner, loser, recent_winner))
-    
+
+# Set up for the the index page with drop down values for players and dates.
 @app.route("/")
 def index():
     values = get_dropdown_values()
