@@ -30,10 +30,10 @@ def get_match(player_a, player_b):
     a_won = matches.query.filter(matches.winner_name==player_a, matches.loser_name==player_b).first()
     b_won = matches.query.filter(matches.winner_name==player_b, matches.loser_name==player_a).first()
     if (a_won is not None):
-        text_output =  "{} ranked {} won over {} ranked {} on a {} surface on {}".format(a_won.winner_name,a_won.winner_rank,a_won.loser_name,a_won.loser_rank,a_won.surface, a_won.tourney_date)
+        text_output =  "{} ranked {} won over {} ranked {} on {}".format(a_won.winner_name,a_won.winner_rank,a_won.loser_name,a_won.loser_rank, a_won.tourney_date)
         return text_output
     elif (b_won is not None):
-        text_output = "{} ranked {} won over {} ranked {} on a {} surface on {}".format(b_won.winner_name,b_won.winner_rank,b_won.loser_name,b_won.loser_rank,b_won.surface, b_won.tourney_date)
+        text_output = "{} ranked {} won over {} ranked {} on {}".format(b_won.winner_name,b_won.winner_rank,b_won.loser_name,b_won.loser_rank, b_won.tourney_date)
         return text_output
     else:
         return "These players haven't played each other"
@@ -92,7 +92,6 @@ class matches(db.Model):
 def process_data():
     selected_player_a = request.args.get('selected_player_a', type=str)
     selected_player_b = request.args.get('selected_player_b', type=str)
-    selected_surface = request.args.get('selected_surface', type=str)
     selected_date = request.args.get('selected_date', type=str)	
     player_a_rank = get_player_rank(selected_player_a, selected_date)
     player_b_rank= get_player_rank(selected_player_b, selected_date)
@@ -105,7 +104,7 @@ def process_data():
     
     recent_winner = get_match(selected_player_a, selected_player_b)
 
-    return jsonify(random_text="On the WTA tour on {} {} was ranked {} and {} was ranked {}.  If they played on that day {} would win over {} based on the machine learning model predicition of 63 percent.  {}.".format(selected_date, selected_player_a, player_a_rank, selected_player_b, player_b_rank, winner, loser, recent_winner))
+    return jsonify(random_text="On the WTA tour on {} {} was ranked {} and {} was ranked {}.  If they played on that day {} would win over {} based on the machine learning model predicition of 63.5 percent.  {}.".format(selected_date, selected_player_a, player_a_rank, selected_player_b, player_b_rank, winner, loser, recent_winner))
 
 # Set up for the the index page with drop down values for players and dates.
 @app.route("/")
