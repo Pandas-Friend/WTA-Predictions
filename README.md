@@ -64,7 +64,7 @@ Output labels for the input data are:
 
 # Results
 ## Logistic Regression
--  The logistic regression model yielded an accuracy of 63.5 %.       
+-  The logistic regression model yielded an accuracy of 63.6 %.       
 - Below is the cofussion matrix for the logistic regression model.      
 ![confussion matrix and accuracy score](https://github.com/Pandas-Friend/WTA-Predictions/blob/main/Images/ML%20Images/Pic17.png)
 - Achieved an ROC of 0.6.   
