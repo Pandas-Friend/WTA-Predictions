@@ -62,11 +62,31 @@ Output labels for the input data are:
 - winner rank
 - loser rank 
 
+# Results
+## Logistic Regression
+- The logistic regression model yielded an accuracy of 63.5 %.
+- Below is the cofussion matrix for the logistic regression model.
+- Achieved an ROC of 0.6.
+
+## Random Forest
+- The logistic regression model yielded an accuracy of 51.3 %.
+- Below is the cofussion matrix for the logistic regression model.
+
 # Dashboard
 - Our front end is a Flask Web App using Flask-SQLAlchemy to query a PostgreSQl database. Python, JQuery, HTML, CSS and Bootstrap provide the basis for the code.  Users pick two current players with rankings greater than 150 and determine if the machine learning predictions show if the players played the outcome is as expected.<br>
 <img width="1036" alt="Screen Shot 2021-08-23 at 4 45 18 PM" src="https://user-images.githubusercontent.com/79341217/130523720-1e538506-1069-41b9-999b-34dec3a7d907.png">
 <img width="1029" alt="Screen Shot 2021-08-23 at 4 45 32 PM" src="https://user-images.githubusercontent.com/79341217/130523748-df2112ae-daa1-4f83-821a-1e3f591882cf.png">
 
+# Limitations and further analysis
+## Limitations
+- Time
+- Sackmann’s vs. tennis-data.co.uk databases
+- Used WTA vs. ATP 2020 tournaments potentially skewing results
+
+## Further analysis
+- Reconsider what features and their correlation to the win column.
+- Explore other supervised machine learning models used for classification.
+- Optimize the machine learning models using a neural network model to  improve our accuracy scores.
 
 # Google Slides presentation
 Below is a direct link to our Google Slides presentation:     
