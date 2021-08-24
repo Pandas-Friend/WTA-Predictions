@@ -104,7 +104,7 @@ def process_data():
     
     recent_winner = get_match(selected_player_a, selected_player_b)
 
-    return jsonify(random_text="On the WTA tour on {} {} was ranked {} and {} was ranked {}.  If they played on that day {} would win over {} based on the machine learning model predicition of 63.5 percent.  {}.".format(selected_date, selected_player_a, player_a_rank, selected_player_b, player_b_rank, winner, loser, recent_winner))
+    return jsonify(random_text="On the WTA tour on {} {} was ranked {} and {} was ranked {}.  If they played on that day {} would win over {} based on the machine learning model predicition of 63.6 percent.  {}.".format(selected_date, selected_player_a, player_a_rank, selected_player_b, player_b_rank, winner, loser, recent_winner))
 
 # Set up for the the index page with drop down values for players and dates.
 @app.route("/")
