@@ -62,15 +62,41 @@ Output labels for the input data are:
 - winner rank
 - loser rank 
 
+# Results
+## Logistic Regression
+-  The logistic regression model yielded an accuracy of 63.6 %.       
+- Below is the cofussion matrix for the logistic regression model.      
+![confussion matrix and accuracy score](https://github.com/Pandas-Friend/WTA-Predictions/blob/main/Images/ML%20Images/Pic17.png)
+- Achieved an ROC of 0.6.   
+![ROC curve](https://github.com/Pandas-Friend/WTA-Predictions/blob/main/Images/ML%20Images/Pic18.png)
+
+## Random Forest
+- The logistic regression model yielded an accuracy of 51.3 %.
+- Below is the cofussion matrix for the random forest model.    
+![random forest results](https://github.com/Pandas-Friend/WTA-Predictions/blob/main/Images/ML%20Images/Pic19.png)
+
 # Dashboard
 - Our front end is a Flask Web App using Flask-SQLAlchemy to query a PostgreSQl database. Python, JQuery, HTML, CSS and Bootstrap provide the basis for the code.  Users pick two current players with rankings greater than 150 and determine if the machine learning predictions show if the players played the outcome is as expected.<br>
-<img width="1036" alt="Screen Shot 2021-08-23 at 4 45 18 PM" src="https://user-images.githubusercontent.com/79341217/130523720-1e538506-1069-41b9-999b-34dec3a7d907.png">
-<img width="1029" alt="Screen Shot 2021-08-23 at 4 45 32 PM" src="https://user-images.githubusercontent.com/79341217/130523748-df2112ae-daa1-4f83-821a-1e3f591882cf.png">
+<img width="1034" alt="Screen Shot 2021-08-23 at 8 58 24 PM" src="https://user-images.githubusercontent.com/79341217/130544394-e39084d6-bd1c-4438-bf8c-d4a25a08b542.png">
+<img width="1032" alt="Screen Shot 2021-08-23 at 8 58 37 PM" src="https://user-images.githubusercontent.com/79341217/130544404-5c2a1d46-efb3-427d-9426-787c4ba8e607.png">
 
+- Below is a link to video of dashboard demo:               
+[Predict A Winner video demo](https://drive.google.com/file/d/1C017V7nQvnQhtratggR5Z87vTvy5PmZc/view?usp=sharing)
+
+# Limitations and further analysis
+## Limitations
+- Time.
+- Sackmann’s vs. tennis-data.co.uk databases.
+- Used WTA vs. ATP 2020 tournaments potentially skewing results.
+
+## Further analysis
+- Reconsider what features and their correlation to the win column.
+- Explore other supervised machine learning models used for classification.
+- Optimize the machine learning models using a neural network model to  improve our accuracy scores.
 
 # Google Slides presentation
 Below is a direct link to our Google Slides presentation:     
-[Google Slides presentation](https://docs.google.com/presentation/d/1kj3-D4nkfjqyRnsDKnIdLMEupGDFcTyMee680LpoGRI/edit#slide=id.ge934b9b1dc_0_22)
+[Predict A Winner](https://docs.google.com/presentation/d/1kj3-D4nkfjqyRnsDKnIdLMEupGDFcTyMee680LpoGRI/edit#slide=id.ge934b9b1dc_0_22)
 
 # Description of the communication protocols
 We will communicate during class sessions, via Zoom for additional video meetings and using the capstone-project_group-three channel.
