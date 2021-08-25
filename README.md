@@ -78,7 +78,8 @@ Output labels for the input data are:
 # Dashboard
 - Our front end is a Flask Web App using Flask-SQLAlchemy to query a PostgreSQl database. Python, JQuery, HTML, CSS and Bootstrap provide the basis for the code.  Users pick two current players with rankings greater than 150 and determine if the machine learning predictions show if the players played the outcome is as expected.<br>
 <img width="1034" alt="Screen Shot 2021-08-23 at 8 58 24 PM" src="https://user-images.githubusercontent.com/79341217/130544394-e39084d6-bd1c-4438-bf8c-d4a25a08b542.png">
-<img width="1032" alt="Screen Shot 2021-08-23 at 8 58 37 PM" src="https://user-images.githubusercontent.com/79341217/130544404-5c2a1d46-efb3-427d-9426-787c4ba8e607.png">
+<img width="1026" alt="Screen Shot 2021-08-25 at 5 03 57 PM" src="https://user-images.githubusercontent.com/79341217/130870585-93a92b3e-0939-437c-9eda-49ebc217dc0f.png">
+
 
 - Below is a link to video of dashboard demo:               
 [Predict A Winner video demo](https://drive.google.com/file/d/1C017V7nQvnQhtratggR5Z87vTvy5PmZc/view?usp=sharing)
